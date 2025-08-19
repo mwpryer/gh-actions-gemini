@@ -21,10 +21,12 @@ app.get("/", (c) => {
 });
 
 app.get("/users", (c) => {
+  // TODO: Add authentication middleware
   return c.json(users);
 });
 
 app.get("/users/:id", (c) => {
+  // TODO: Add authentication middleware
   const id = parseInt(c.req.param("id"));
   const user = users.find((u) => u.id === id);
 
@@ -36,6 +38,7 @@ app.get("/users/:id", (c) => {
 });
 
 app.post("/users", async (c) => {
+  // TODO: Add authentication middleware
   const body = await c.req.json();
 
   if (!body.name || !body.email) {
